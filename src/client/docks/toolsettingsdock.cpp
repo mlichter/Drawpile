@@ -405,10 +405,12 @@ void ToolSettings::saveCurrentTool()
 void ToolSettings::eraserNear(bool near)
 {
 	if(near && !_eraserActive) {
+		qDebug("switch eraser on");
 		_eraserOverride = currentTool();
 		setTool(tools::ERASER);
 		_eraserActive = true;
 	} else if(!near && _eraserActive) {
+		qDebug("switch eraser off");
 		setTool(tools::Type(_eraserOverride));
 		_eraserActive = false;
 	}
